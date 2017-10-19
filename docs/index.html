@@ -1,26 +1,60 @@
+<!doctype html>
 <html>
 	<head>
 		<title>
 			AVR C++ library
 		</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="gridlayout.css">
 	</head>
 	<body>
-		<div class=header>
-			<H1>
-				AVR C++ library
-			</H1>
-			<P>
-			This is an attempt to use C++ in an AVR compiler
-			</P>
-		</div>
-		<div class=disclamer>
-			<H2>
-				Disclamer
-			</H2>
-			<P>
+		<div class="EntirePage">
+			<div class=header>
+				<H1>
+					AVR C++ library
+				</H1>
+			</div>
+			<div class=content>
+				<P>
+				This is an attempt to use C++ in an AVR compiler.
+				</P>
+				<P>
+				The way this is attempted is to use the newlib as an inspiration and
+				to use the experiences I've had implementing C++ for microcontrollers.
+				</P>
+				<P>
+				This means using the layout and most of the methods from the newlib
+				library, which in turns determines my license, and implement it in
+				a way that is compatible with the philosphy of the project.
+				</P>
+				<H2>
+					Philosophy
+				</H2>
+				<P>
+				Since this is a library designed for very small microcontrollers the
+				usual ideal of no dynamic memory allocation and no exceptions are followed.
+				</P>
+				<P>
+				I realise that there are some uses for both in microcontroller coding
+				but this design desicion is the one I'm going with.
+				</P>
+			</div>
+			<div class=navigation>
+				<H2>
+					Navigation
+				</H2>
+				<a href=index.html>Home</a>
+
+			</div>
+			<div class=disclaimer>
+				<H2>
+					Disclamer
+				</H2>
+				<P>
 				I have no afiliation with the Atmel/Microchip company, nor do I claim to make this library industry ready.
 				All trademarks are the property of their respective owners/organizations
-			</P>
+				</P>
+			</div>
 		</div>
 	</body>
 </html>
