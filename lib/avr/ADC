@@ -1,0 +1,105 @@
+// Copyleft Paul M. Bendixen 2017
+// This file is released under GNU LGPL
+
+#ifndef ADC
+#define ADC
+
+#include <avr/Peripherals>
+
+namespace ADC
+{
+	enum class RefSelect: uint8_t
+	{
+		AREFS   = 0b0000'0000,
+		AVCC    = 0b0100'0000,
+		INTERNAL= 0b1100'0000,
+		Mask    = 0b1100'0000
+	};
+	enum class LeftAdjust: uint8_t
+	{
+		RIGHT   = 0b0000'0000,
+		LEFT    = 0b0010'0000,
+		Mask    = 0b0010'0000
+	};
+	enum class Multiplex: uint8_t
+	{
+		SINGLE0 =       0b0000'0000,
+		SINGLE1 =       0b0000'0001,
+		SINGLE2 =       0b0000'0010,
+		SINGLE3 =       0b0000'0011,
+		SINGLE4 =       0b0000'0100,
+		SINGLE5 =       0b0000'0101,
+		SINGLE6 =       0b0000'0110,
+		SINGLE7 =       0b0000'0111,
+		DIFF01x10 =     0b0000'1001,
+		DIFF01x200 =    0b0000'1011,
+		DIFF23x10 =     0b0000'1101,
+		DIFF23x200 =    0b0000'1111,
+		DIFF10 =        0b0001'0000,
+		DIFF12 =        0b0001'0010,
+		DIFF13 =        0b0001'0011,
+		DIFF14 =        0b0001'0100,
+		DIFF15 =        0b0001'0101,
+		DIFF16 =        0b0001'0110,
+		DIFF17 =        0b0001'0111,
+		DIFF20 =        0b0001'1000,
+		DIFF21 =        0b0001'1001,
+		DIFF22 =        0b0001'1010,
+		DIFF23 =        0b0001'1011,
+		DIFF24 =        0b0001'1100,
+		DIFF25 =        0b0001'1101,
+		VBG =           0b0001'1110,
+		GND =           0b0001'1111,
+		Mask =          0b0001'1111
+	};
+
+	enum class ADCEnable: uint8_t
+	{
+		Enable	= 0b1000'0000,
+		Disable	= 0b0000'0000,
+		Mask	= 0b1000'0000
+	};
+
+	enum class AutoTrigger: uint8_t
+	{
+		Enable  = 0b0010'0000,
+		Disable = 0b0000'0000,
+		Mask    = 0b0010'0000
+	};
+
+	enum class InterruptEnable: uint8_t
+	{
+		Enable  = 0b0000'1000,
+		Disable = 0b0000'0000,
+		Mask    = 0b0000'1000
+	};
+
+	enum class Prescaler : uint8_t
+	{
+		Prescale2 =     0b0000'0000,
+		Prescale4 =     0b0000'0010,
+		Prescale8 =     0b0000'0011,
+		Prescale16 =    0b0000'0100,
+		Prescale32 =    0b0000'0101,
+		Prescale64 =    0b0000'0110,
+		Prescale128 =   0b0000'0111,
+		Mask =          0b0000'0111
+	};
+
+	enum class Trigger: uint8_t
+	{
+		FreeRunning =   0b0000'0000,
+		Comparator =    0b0010'0000,
+		ExternalIRQ =   0b0100'0000,
+		Timer0Match =   0b0110'0000,
+		Timer0Overflow= 0b1000'0000,
+		Timer1Match =   0b1010'0000,
+		Timer1Overflow= 0b1100'0000,
+		Timer1Capture = 0b1110'0000,
+		Mask =          0b1110'0000
+	};
+
+}
+
+#endif // ADC
+/* vim: se ft=cpp: */

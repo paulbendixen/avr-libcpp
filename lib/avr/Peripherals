@@ -1,0 +1,14 @@
+// Copyleft Paul M. Bendixen 2017
+// This file is released under GNU LGPL
+
+#ifndef PERIPHERALS
+#define PERIPHERALS
+
+#if defined( __AVR_ATmega16__ )
+#include <avr/PeripheralsM16.h>
+#else
+#	warning "No Chip defined!"
+#endif
+
+#endif // PERIPHERALS
+/* vim: se ft=cpp: */
