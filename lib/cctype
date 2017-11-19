@@ -1,0 +1,8 @@
+// This file released under the LGPL
+// Copyleft Paul M. Bendixen 2017
+
+namespace std
+{
+	#include <ctype.h>
+}
+// vim: se ft=cpp:

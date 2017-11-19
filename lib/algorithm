@@ -1,0 +1,9 @@
+// This file released under the LGPL
+// Copyleft Paul M. Bendixen 2017
+
+#ifndef STD_ALGORITHM
+#define STD_ALGORITHM
+
+#endif
+
+// vim: se ft=cpp:

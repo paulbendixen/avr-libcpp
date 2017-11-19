@@ -1,0 +1,12 @@
+// This file released under the LGPL
+// Copyleft Paul M. Bendixen 2017
+#ifndef STD_CASSERT
+#define STD_CASSERT
+
+namespace std
+{
+#include <assert.h>
+}
+
+#endif
+// vim: se ft=cpp:

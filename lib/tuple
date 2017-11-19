@@ -1,0 +1,12 @@
+// This file released under the LGPL
+// Copyleft Paul M. Bendixen 2017
+#ifndef STD_TUPLE
+#define STD_TUPLE
+namespace std
+{
+	template < class... Types >
+	struct tuple
+	{
+	}
+}
+// vim: se ft=cpp:

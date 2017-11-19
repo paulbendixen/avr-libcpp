@@ -4,6 +4,7 @@
 namespace std
 {
 #include <stddef.h>
+	typedef decltype( nullptr ) nullptr_t;
 // Remember to undef stuf that has been #defined
 }
 /* vim: se ft=cpp: */
