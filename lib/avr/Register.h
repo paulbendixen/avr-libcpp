@@ -9,11 +9,11 @@
 template < std::size_t address, typename ValueType, ValueType mask, std::uint8_t offset, typename mutability >
 struct Register
 {
-	static void write< ValueType >( ValueType value )
+	static void write( ValueType value )
 	{
 		mutability::write( address, mask, offset, value );
 	}
-	static ValueType read< ValueType >()
+	static ValueType read()
 	{
 		mutability::read( address, mask, offset );
 	}
@@ -23,7 +23,7 @@ struct Register
 template < typename ValueType >
 struct WriteOnly
 {
-	static void write( size_t address, ValueType mask, std::uint8_t offset, ValueType value )
+	static void write( std::size_t address, ValueType mask, std::uint8_t offset, ValueType value )
 	{
 		*reinterpret_cast< volatile ValueType* >( address ) = ( value & mask ) << offset;
 	}
@@ -32,7 +32,7 @@ struct WriteOnly
 template < typename ValueType >
 struct ReadOnly
 {
-	static ValueType read( size_t address, ValueType mask, std::uint8_t offset );
+	static ValueType read( std::size_t address, ValueType mask, std::uint8_t offset )
 	{
 		return ( *reinterpret_cast< const volatile ValueType* >( address ) & mask ) >> offset;
 	}
@@ -41,12 +41,19 @@ struct ReadOnly
 template < typename ValueType >
 struct ReadWrite : ReadOnly< ValueType >
 {
-	static void write( size_t address, ValueType mask, std::uint8_t offset, ValueType value )
+	static void write( std::size_t address, ValueType mask, std::uint8_t offset, ValueType value )
 	{
 		*reinterpret_cast< volatile ValueType* >( address ) = 
 			( *reinterpret_cast< const volatile ValueType* >( address ) & ~( mask ) ) |
 			( ( value & mask ) << offset );
 	}
-}
+};
+
+using RO8 = ReadOnly< std::uint8_t >;
+using RO16 = ReadOnly< std::uint16_t >;
+using RW8 = ReadWrite< std::uint8_t >;
+using RW16 = ReadWrite< std::uint16_t >;
+using WO8 = WriteOnly< std::uint8_t >;
+using WO16 = WriteOnly< std::uint16_t >;
 
 #endif //REGISTER_H

@@ -1,0 +1,21 @@
+// Copyleft Paul M. Bendixen 2017
+// This file is released under GNU LGPL
+#ifndef IOM16
+#define IOM16
+#include <avr/Register.h>
+#include <cstdint>
+
+namespace avr
+{
+	namespace atmega16
+	{
+		namespace MCUCR
+		{
+			using isc = Register< 0x35, std::uint8_t, 0x0F, 0, ReadWrite< std::uint8_t > >;
+			using sm = Register< 0x35, std::uint8_t, 0xB0, 4, ReadWrite< std::uint8_t > >;
+			using se = Register< 0x35, std::uint8_t, 0b0100'0000, 6, ReadWrite< std::uint8_t > >;
+		}
+	}
+}
+#endif
+// vim: se ft=cpp:

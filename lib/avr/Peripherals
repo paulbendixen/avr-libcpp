@@ -5,7 +5,7 @@
 #define PERIPHERALS
 
 #if defined( __AVR_ATmega16__ )
-#include <avr/PeripheralsM16.h>
+#include <avr/iom16>
 #else
 #	warning "No Chip defined!"
 #endif

@@ -4,24 +4,25 @@
 #ifndef ADC
 #define ADC
 
+#include <cstdint>
 #include <avr/Peripherals>
 
 namespace ADC
 {
-	enum class RefSelect: uint8_t
+	enum class RefSelect: std::uint8_t
 	{
 		AREFS   = 0b0000'0000,
 		AVCC    = 0b0100'0000,
 		INTERNAL= 0b1100'0000,
 		Mask    = 0b1100'0000
 	};
-	enum class LeftAdjust: uint8_t
+	enum class LeftAdjust: std::uint8_t
 	{
 		RIGHT   = 0b0000'0000,
 		LEFT    = 0b0010'0000,
 		Mask    = 0b0010'0000
 	};
-	enum class Multiplex: uint8_t
+	enum class Multiplex: std::uint8_t
 	{
 		SINGLE0 =       0b0000'0000,
 		SINGLE1 =       0b0000'0001,
@@ -53,28 +54,28 @@ namespace ADC
 		Mask =          0b0001'1111
 	};
 
-	enum class ADCEnable: uint8_t
+	enum class ADCEnable: std::uint8_t
 	{
 		Enable	= 0b1000'0000,
 		Disable	= 0b0000'0000,
 		Mask	= 0b1000'0000
 	};
 
-	enum class AutoTrigger: uint8_t
+	enum class AutoTrigger: std::uint8_t
 	{
 		Enable  = 0b0010'0000,
 		Disable = 0b0000'0000,
 		Mask    = 0b0010'0000
 	};
 
-	enum class InterruptEnable: uint8_t
+	enum class InterruptEnable: std::uint8_t
 	{
 		Enable  = 0b0000'1000,
 		Disable = 0b0000'0000,
 		Mask    = 0b0000'1000
 	};
 
-	enum class Prescaler : uint8_t
+	enum class Prescaler : std::uint8_t
 	{
 		Prescale2 =     0b0000'0000,
 		Prescale4 =     0b0000'0010,
@@ -86,7 +87,7 @@ namespace ADC
 		Mask =          0b0000'0111
 	};
 
-	enum class Trigger: uint8_t
+	enum class Trigger: std::uint8_t
 	{
 		FreeRunning =   0b0000'0000,
 		Comparator =    0b0010'0000,
